@@ -1,0 +1,9 @@
+.card{style: "margin:4rem 0"}
+	%img.card-img-top{:alt => "Card image cap", :src => image, style: "width:100%"}/
+	.card-body
+		%h4.card-title.text-center{style: "margin-top:2rem;"}= title
+		.text-center
+			%b= price
+		%hr
+		%p.card-text= text.to_s.truncate(170)
+		%a.btn.btn-primary{:href => "#", style: "width: 100%"} Lihat

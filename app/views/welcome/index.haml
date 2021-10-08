@@ -1,0 +1,28 @@
+%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"}
+%script{:crossorigin => "anonymous", :integrity => "sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==", :referrerpolicy => "no-referrer", :src => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"}
+%link{:crossorigin => "anonymous", :href => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css", :integrity => "sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==", :referrerpolicy => "no-referrer", :rel => "stylesheet"}/
+
+
+.single-item
+	= image_tag("https://suzuki-bali.com/wp-content/uploads/2021/02/banner-2.jpg", alt: "Edit Entry")
+	= image_tag("https://njssuzukibandung.com/wp-content/uploads/2021/08/banner-suzuki.jpg",alt: "Edit Entry")
+
+.text-content 
+	%hr
+	%h1.text-center= "Dealer Bandung"
+	%h4.text-center= "ROBBY di 08121328443534"
+	%hr
+.container.section
+	.row
+		- get_product_card.each do |obj|
+			.col-md-3
+				= render partial: "card_product", locals: {image: obj[:image], title: obj[:title], price: obj[:price], text: obj[:text]}
+
+:javascript
+	$(document).ready(function () {
+		$('.single-item').slick({
+			autoplay: true,
+			infinite: true,
+			dots: true
+		});
+	})
